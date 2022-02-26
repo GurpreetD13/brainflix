@@ -25,9 +25,25 @@ a {
 }
 
 input, textarea {
+    @include font-body;  // is this working, looks like yes
+    font-family: $font-stack;  // is this working, looks like yes
+    color: $color-primary-black; // is this working, looks like yes
     min-height: 36px;
+    min-width: 240px;
+    max-width: 100%; //bs 90%
+    margin: 4px; //bs 4px 0 20px;
+    border-radius: 4px;
+    border: 1px solid $color-secondary-mercury;
+    background-color: $color-secondary-alabaster;
+    padding: 12px; 
 
     @include tablet {
         min-height: 40px;
+        padding: 16px;
+    }
+
+    &:active {
+        border-color: $color-primary-blue; //not working
+        // border: 2px solid $color-primary-blue;
     }
 }
