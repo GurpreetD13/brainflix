@@ -23,3 +23,11 @@ body {
 a {
     text-decoration: none;
 }
+
+input, textarea {
+    min-height: 36px;
+
+    @include tablet {
+        min-height: 40px;
+    }
+}
