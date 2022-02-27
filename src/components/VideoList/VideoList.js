@@ -3,9 +3,9 @@ import './VideoList.scss';
 const VideoList = (props) => {
     const { filteredVideos, handleVideoChange } = props;
 
-    const clickHandler = (event, clickedVideo) => {
+    const clickHandler = (event, clickedVideoId) => {
         event.preventDefault();
-        handleVideoChange(clickedVideo);
+        handleVideoChange(clickedVideoId);
     }
     return (
         <aside className='video-list'>
@@ -13,7 +13,7 @@ const VideoList = (props) => {
             <ul>
                 {filteredVideos.map(video => (
                     <li key={video.id}>
-                        <a href='/' onClick={event => { clickHandler(event, video) }}>
+                        <a href='/' onClick={event => { clickHandler(event, video.id) }}>
                             <div className='video-list__item'>
                                 <img className='video-item__image' src={video.image} alt={video.title} />
                                 <div>

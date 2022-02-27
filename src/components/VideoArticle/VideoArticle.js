@@ -21,7 +21,7 @@ const VideoArticle = (props) => {
             </article>
 
             <section className='comments-section'>
-                <p className='comments-section__total-comments'>{3} Comments</p>
+                <p className='comments-section__total-comments'>{comments.length} Comments</p>
 
                 <form id='comment-form'>
                     <label htmlFor="userComment">JOIN THE CONVERSATION</label>
