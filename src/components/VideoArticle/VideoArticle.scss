@@ -1,6 +1,13 @@
-@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
 
-label {
-    color: $color-primary-silver;
-    padding-bottom: 4px;
+
+.comment-form__user-comment {
+    resize: none;
+    padding: 12px;
+    height: 72px;
+
+    @include tablet {
+        padding: 0 16px;
+        height: 0;
+    }
 }

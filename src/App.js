@@ -15,7 +15,7 @@ class App extends React.Component {
     activeVideo: videoDetailsData[0]
   }
 
-  //Function handleVideoChange will handle change/set Sdtate of active video to the clicked video from VideoList component
+  //Function handleVideoChange will handle change/set State of active video to the clicked video from VideoList component
 
   handleVideoChange = (clickedVideo) =>
     this.setState({
@@ -23,7 +23,7 @@ class App extends React.Component {
     })
 
   render() {
-    // Fitler out the active video before passing into VideoList by using id
+    // Fitler out the active video by using id from videosData array before passing into VideoList component
     const filteredVideos = videosData.filter(video => video.id !== this.state.activeVideo.id)
 
     return (

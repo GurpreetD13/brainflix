@@ -94,3 +94,9 @@ textarea {
         height: 40px;
     }
 }
+
+label {
+    color: $color-primary-silver;
+    @include font-labels-buttons;
+    padding-bottom: 4px;
+}
