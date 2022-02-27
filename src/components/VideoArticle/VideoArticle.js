@@ -1,4 +1,5 @@
 import './VideoArticle.scss';
+import dateFormatter from '../utils/dateFormatter';
 
 const VideoArticle = (props) => {
 
@@ -12,7 +13,7 @@ const VideoArticle = (props) => {
                 <div>
                     <div>
                         <h2 className='video-article__channel'>By {channel}</h2>
-                        <p className='video-article__details'>{timestamp}</p>
+                        <p className='video-article__details'>{dateFormatter(timestamp)}</p>
                     </div>
                     <div>
                         <p className='video-article__details'>{views}</p>
@@ -42,7 +43,7 @@ const VideoArticle = (props) => {
                             <div className="comment-post__container">
                                 <div className="comment-post__heading-container">
                                     <p className="comment-post__name">{comment.name}</p>
-                                    <p className="comment-post__date">{comment.timestamp}</p>
+                                    <p className="comment-post__date">{dateFormatter(comment.timestamp)}</p>
                                 </div>
                                 <p className="comment-post__text">{comment.comment}</p>
                             </div>
