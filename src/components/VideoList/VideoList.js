@@ -1,7 +1,7 @@
 import './VideoList.scss';
 
 const VideoList = (props) => {
-    const {filteredVideos} = props;
+    const {filteredVideos, handleVideoChange} = props;
     return (
 
         <>
