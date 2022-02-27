@@ -1,12 +1,14 @@
 import './VideoHero.scss';
 
-const VideoHero = () => {
+const VideoHero = (props) => {
+    const { image } = props.activeVideo;
+
     return (
-
-        <>
-            <p>VideoHero</p>
-        </>
-
+        <video
+            className='video-hero'
+            poster={image}
+            controls>
+        </video>
     );
 };
 

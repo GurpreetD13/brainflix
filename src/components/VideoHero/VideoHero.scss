@@ -1,0 +1,16 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/colors' as *;
+
+
+.video-hero {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: $color-secondary-darkblack;
+
+    @include tablet {
+        padding: 0 5%;
+    }
+    @include desktop {
+        padding: 0 15%;
+    }
+}
