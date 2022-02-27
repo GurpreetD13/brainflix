@@ -1,15 +1,17 @@
 import './VideoArticle.scss';
 
 const VideoArticle = (props) => {
-    // const { activeVideo } = props;
+
     const { channel, title, description, timestamp, views, likes, comments } = props.activeVideo;
+
     return (
         <main className='main'>
+
             <article className='video-article'>
                 <h1 className='video-article__title'>{title}</h1>
                 <div>
                     <div>
-                        <h2 className='video-article__channel'>{channel}</h2>
+                        <h2 className='video-article__channel'>By {channel}</h2>
                         <p className='video-article__details'>{timestamp}</p>
                     </div>
                     <div>
@@ -19,6 +21,7 @@ const VideoArticle = (props) => {
                 </div>
                 <p className='video-article__description'>{description}</p>
             </article>
+
 
             <section className='comments-section'>
                 <p className='comments-section__total-comments'>{comments.length} Comments</p>
@@ -30,13 +33,24 @@ const VideoArticle = (props) => {
                     <button disabled="disabled">COMMENT</button>
                 </form>
 
+                {comments
+                    .sort((a, b) => b.timestamp - a.timestamp)
+                    .map(comment => (
 
+                        <div key={comment.timestamp} className="comment-post" >
+                            <div className="avatar"></div>
+                            <div className="comment-post__container">
+                                <div className="comment-post__heading-container">
+                                    <p className="comment-post__name">{comment.name}</p>
+                                    <p className="comment-post__date">{comment.timestamp}</p>
+                                </div>
+                                <p className="comment-post__text">{comment.comment}</p>
+                            </div>
+                        </div>
+                    ))}
 
             </section>
-
-
-        </main>
-
+        </main >
     );
 };
 

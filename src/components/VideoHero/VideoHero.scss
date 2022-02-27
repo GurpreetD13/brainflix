@@ -6,11 +6,14 @@
     width: 100%;
     box-sizing: border-box;
     background-color: $color-secondary-darkblack;
+    height: 55.5vw;
 
     @include tablet {
         padding: 0 5%;
+        height: 50vw;
     }
     @include desktop {
         padding: 0 15%;
+        height: 38vw;
     }
 }

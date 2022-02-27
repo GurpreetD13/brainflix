@@ -10,7 +10,7 @@ import videoDetailsData from './data/video-details.json';
 
 class App extends React.Component {
 
-  // Set State to default the 1st video in the videoDetailsData array
+  // Set initial default State to the 1st video in the videoDetailsData array
   state = {
     activeVideo: videoDetailsData[0]
   }
@@ -28,7 +28,6 @@ class App extends React.Component {
     })
   }
 
-
   render() {
     // Fitler out the active video from videosData array before passing into VideoList component by using active video's id
     const filteredVideos = videosData.filter(video => video.id !== this.state.activeVideo.id)
@@ -40,14 +39,8 @@ class App extends React.Component {
         <VideoHero
           activeVideo={this.state.activeVideo} />
 
-        <main className='main'>
-
-        </main>
         <VideoArticle
           activeVideo={this.state.activeVideo} />
-
-        {/* <Comments 
-          activeVideo={this.state.activeVideo}/> */}
 
         <VideoList
           filteredVideos={filteredVideos}
