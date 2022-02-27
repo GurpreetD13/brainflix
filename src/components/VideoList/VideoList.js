@@ -1,10 +1,11 @@
 import './VideoList.scss';
 
-const VideoList = () => {
+const VideoList = (props) => {
+    const {filteredVideos} = props;
     return (
 
         <>
-            <p>VideoList</p>
+            <p>{filteredVideos[1].title}</p>
         </>
 
     );

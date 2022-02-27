@@ -1,10 +1,11 @@
 import './VideoArticle.scss';
 
-const VideoArticle = () => {
+const VideoArticle = (props) => {
+    const {activeVideo} = props;
     return (
 
         <>
-            <p>VideoArticle</p>
+            <p>{activeVideo.title}</p>
         </>
 
     );
