@@ -7,10 +7,9 @@ const Nav = () => {
         <nav className='nav'>
             <img className='nav__logo' src={logo} alt="brainflix logo" />
             <form>
-                <input type="text" placeholder='Search' />
+                <input className='nav__search' type="text" placeholder='Search' />
             </form>
-            {/* change button type to text */}
-            <button disabled="disabled">UPLOAD</button>
+            <button>UPLOAD</button>
             <div className='nav__avatar'></div>
         </nav>
     );
