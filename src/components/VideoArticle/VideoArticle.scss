@@ -40,3 +40,34 @@
 .comments-section__total-comments {
     @include font-subheader;
 }
+
+.comment-post {
+    @include font-body;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    border-bottom: 1px solid $color-secondary-mercury;
+    padding: 1.5rem 0 1rem;
+
+    @include desktop {
+        padding: 3rem 10% 2rem;
+    }
+
+    &__container {
+        width: 80%;
+    }
+
+    &__heading-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__name {
+        font-weight: 700;
+    }
+
+    &__date {
+        color: $color-primary-silver;
+    }
+}
