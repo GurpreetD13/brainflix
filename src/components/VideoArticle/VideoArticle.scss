@@ -1,5 +1,30 @@
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/colors' as *;
 
+
+.main {
+    // box-sizing: border-box;
+    // width: 100%;
+    padding: 16px;
+}
+
+.video-article {
+    &__title {
+        @include font-header-page;
+    }
+    &__channel {
+        @include font-subheader;
+    }
+    &__details {
+        @include font-body;
+        color: $color-primary-silver;
+    }
+    &__description {
+        @include font-body;
+
+    }
+}
 
 .comment-form__user-comment {
     resize: none;
@@ -10,4 +35,8 @@
         padding: 0 16px;
         height: 0;
     }
+}
+
+.comments-section__total-comments {
+    @include font-subheader;
 }
