@@ -12,7 +12,7 @@ class App extends React.Component {
 
   // Set State to default the 1st video in the videosData array
   state = {
-    activeVideo: videosData[0]
+    activeVideo: videoDetailsData[0]
   }
 
   //Function handleVideoChange will handle change/set Sdtate of active video to the clicked video from VideoList component
@@ -24,7 +24,7 @@ class App extends React.Component {
 
   render() {
     // Fitler out the active video before passing into VideoList by using id
-    const filteredVideos = videoDetailsData.filter(video => video.id !== this.state.activeVideo.id)
+    const filteredVideos = videosData.filter(video => video.id !== this.state.activeVideo.id)
 
     return (
       <>
