@@ -1,6 +1,15 @@
-.video-list {
-    &__title {
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/colors' as *;
 
+.video-list {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+
+    &__title {
+        color: $color-primary-silver;
+        @include font-header-section;
     }
 
     &__item {
@@ -8,9 +17,23 @@
     }
 }
 
+ul {
+    padding: 0;
+}
+
 .video-item {
+    &__title {
+        @include font-subheader;
+    }
+    &__channel {
+       @include font-body; 
+    }
+
     &__image {
-        // width: 48px;
-        height: 50px;
+        border-radius: 4px;
+        background-color: $color-secondary-mercury;
+        //need to fix image size or put in container
+        width: 96px;
+        height: 54px;
     }
 }

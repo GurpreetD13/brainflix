@@ -8,9 +8,9 @@ const VideoList = (props) => {
         handleVideoChange(clickedVideo);
     }
     return (
-        <aside  className='video-list'>
+        <aside className='video-list'>
             <h2 className='video-list__title'>NEXT VIDEO</h2>
-            <ul>
+            <ul className='video-list__'>
                 {filteredVideos.map(video => (
                     <li key={video.id}>
                         <a href='/' onClick={event => { clickHandler(event, video) }}>
