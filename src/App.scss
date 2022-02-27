@@ -75,3 +75,17 @@ input, textarea {
 textarea {
     resize: none;
 }
+
+.avatar {
+    background-color: $color-secondary-mercury;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+
+    @include tablet {
+        width: 40px;
+        height: 40px;
+    }
+}
