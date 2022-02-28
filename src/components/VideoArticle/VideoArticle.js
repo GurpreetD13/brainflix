@@ -16,8 +16,8 @@ const VideoArticle = (props) => {
                         <p className='video-article__details'>{dateFormatter(timestamp)}</p>
                     </div>
                     <div>
-                        <p className='video-article__details'>{views}</p>
-                        <p className='video-article__details'>{likes}</p>
+                        <p className='video-article__details video-article__details--views'>{views}</p>
+                        <p className='video-article__details video-article__details--likes'>{likes}</p>
                     </div>
                 </div>
                 <p className='video-article__description'>{description}</p>
@@ -31,7 +31,7 @@ const VideoArticle = (props) => {
                     <label htmlFor="userComment">JOIN THE CONVERSATION</label>
                     <textarea name="userComment" className='comment-form__user-comment'
                         placeholder='Add a new comment'></textarea>
-                    <button disabled="disabled">COMMENT</button>
+                    <button className="comment-form__button" disabled="disabled">COMMENT</button>
                 </form>
 
                 {comments

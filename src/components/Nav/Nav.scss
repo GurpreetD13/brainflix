@@ -20,6 +20,25 @@
 
     &__search {
         margin: 16px;
+        position: relative;
+        
+        &::before {
+            content: "";
+            background: url('../../assets/icons/search.svg');
+            width: 20px;
+            position: absolute;
+            left: 50px;
+        }
+    }
+
+    &__button {
+        position: relative;
+
+        &::before {
+            content: url('../../assets/icons/upload.svg');
+            position: absolute;
+            left: 10px;
+        }
     }
 
     &__avatar {

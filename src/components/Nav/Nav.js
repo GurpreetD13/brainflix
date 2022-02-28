@@ -9,7 +9,7 @@ const Nav = () => {
                 <input className='nav__search' type="text" placeholder='Search' />
                 {/* <div className='nav__avatar avatar nav__avatar--mobile'></div> */}
             </form>
-            <button>UPLOAD</button>
+            <button className='nav__button'>UPLOAD</button>
             <div className='nav__avatar avatar nav__avatar--tablet'></div>
         </nav>
     );

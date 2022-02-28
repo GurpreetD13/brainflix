@@ -3,6 +3,7 @@
 @use '../../styles/partials/colors' as *;
 
 
+
 .main {
     // box-sizing: border-box;
     // width: 100%;
@@ -19,6 +20,16 @@
     &__details {
         @include font-body;
         color: $color-primary-silver;
+
+        &--views::before {
+            content: url('../../assets/icons/views.svg');
+            padding-right: 4px;
+        }
+
+        &--likes::before {
+            content: url('../../assets/icons/likes.svg');
+            padding: 0 6px 0 3px;
+        }
     }
     &__description {
         @include font-body;
@@ -26,14 +37,26 @@
     }
 }
 
-.comment-form__user-comment {
-    resize: none;
-    padding: 12px;
-    height: 72px;
+.comment-form {
+    &__user-comment {
+        resize: none;
+        padding: 12px;
+        height: 72px;
+    
+        @include tablet {
+            padding: 0 16px;
+            height: 0;
+        }
+    }
 
-    @include tablet {
-        padding: 0 16px;
-        height: 0;
+    &__button {
+        position: relative;
+        
+        &::before {
+            content: url('../../assets/icons/add_comment.svg');
+            position: absolute;
+            left: 10px;
+        }
     }
 }
 
