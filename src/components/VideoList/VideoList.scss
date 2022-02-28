@@ -7,6 +7,18 @@
     width: 100%;
     padding: 16px;
 
+    @include tablet {
+        width: 50%;
+        padding-left: 48px;
+    }
+
+    @include desktop {
+        width: 40%;
+        border-left: 1px solid $color-secondary-mercury;
+        padding-left: 24px;
+
+    }
+
     &__title {
         color: $color-primary-silver;
         @include font-header-section;
@@ -32,8 +44,8 @@ ul {
     &__image {
         border-radius: 4px;
         background-color: $color-secondary-mercury;
-        //need to fix image size or put in container
-        width: 96px;
-        height: 54px;
+        min-width: 115px;
+        height: 65px;
+        margin: 16px 16px 0 0;
     }
 }

@@ -71,6 +71,7 @@ input, textarea {
 
 textarea {
     resize: none;
+    min-width: 205px;
 }
 
 .avatar {
@@ -92,4 +93,14 @@ label {
     color: $color-primary-silver;
     @include font-labels-buttons;
     padding-bottom: 4px;
+}
+
+.desktop-container {
+    @include desktop {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 10%;
+        display: flex;
+
+    }
 }

@@ -5,9 +5,15 @@
 
 
 .main {
-    // box-sizing: border-box;
-    // width: 100%;
+    box-sizing: border-box;
+    width: 100%;
     padding: 16px;
+    @include tablet {
+        padding: 16px 48px;
+    }
+    @include desktop {
+      width: 60%  
+    }
 }
 
 .video-article {
@@ -16,10 +22,13 @@
     }
     &__channel {
         @include font-subheader;
+        padding-right: 16px;
     }
     &__details {
         @include font-body;
         color: $color-primary-silver;
+        padding-right: 16px;
+
 
         &--views::before {
             content: url('../../assets/icons/views.svg');
@@ -33,11 +42,53 @@
     }
     &__description {
         @include font-body;
+        padding-bottom: 16px;
+    }
 
+    &__subheading-container {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $color-secondary-mercury;
+        border-top: 1px solid $color-secondary-mercury;
+        
+        @include tablet {
+            border-top: none;
+        }
+    }
+    &__details-container {
+        @include tablet {
+            display: flex;
+        }
+    }
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color-secondary-mercury;
+    padding-bottom: 1rem;
+
+    &__avatar {
+        background-image: url('../../assets/images/Mohan-muruge.jpg');
+    }
+
+    &__form {
+        width: 80%;
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
     }
 }
 
 .comment-form {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+
     &__user-comment {
         resize: none;
         padding: 12px;
@@ -46,12 +97,21 @@
         @include tablet {
             padding: 0 16px;
             height: 0;
+            width: 43vw;
+        }
+        @include desktop {
+              margin-right: 16px;
+            width: 20vw;
         }
     }
 
     &__button {
         position: relative;
-        
+        @include tablet {
+            margin-bottom: 16px;
+            max-width: 235px;
+        }
+
         &::before {
             content: url('../../assets/icons/add_comment.svg');
             position: absolute;
@@ -71,11 +131,7 @@
     box-sizing: border-box;
     width: 100%;
     border-bottom: 1px solid $color-secondary-mercury;
-    padding: 1.5rem 0 1rem;
-
-    @include desktop {
-        padding: 3rem 10% 2rem;
-    }
+    padding-top: 12px;
 
     &__container {
         width: 80%;

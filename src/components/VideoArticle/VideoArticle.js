@@ -10,12 +10,12 @@ const VideoArticle = (props) => {
 
             <article className='video-article'>
                 <h1 className='video-article__title'>{title}</h1>
-                <div>
-                    <div>
+                <div className='video-article__subheading-container'>
+                    <div className='video-article__details-container'>
                         <h2 className='video-article__channel'>By {channel}</h2>
                         <p className='video-article__details'>{dateFormatter(timestamp)}</p>
                     </div>
-                    <div>
+                    <div className='video-article__details-container'>
                         <p className='video-article__details video-article__details--views'>{views}</p>
                         <p className='video-article__details video-article__details--likes'>{likes}</p>
                     </div>
@@ -26,14 +26,21 @@ const VideoArticle = (props) => {
 
             <section className='comments-section'>
                 <p className='comments-section__total-comments'>{comments.length} Comments</p>
+                <div className="form-container">
+                    <div className="avatar form-container__avatar">
+                    </div>
+                    <form id='comment-form' className="form-container__form">
+                        <div className="comment-form">
+                            <label htmlFor="userComment">JOIN THE CONVERSATION</label>
+                            <textarea name="userComment" className='comment-form__user-comment'
+                                placeholder='Add a new comment'></textarea>
+                        </div>
 
-                <form id='comment-form'>
-                    <label htmlFor="userComment">JOIN THE CONVERSATION</label>
-                    <textarea name="userComment" className='comment-form__user-comment'
-                        placeholder='Add a new comment'></textarea>
-                    <button className="comment-form__button" disabled="disabled">COMMENT</button>
-                </form>
+                        <button className="comment-form__button" disabled="disabled">COMMENT</button>
+                    </form>
+                </div>
 
+                {/* Below we dynamically render the comments by first sorting, then mapping through them */}
                 {comments
                     .sort((a, b) => b.timestamp - a.timestamp)
                     .map(comment => (

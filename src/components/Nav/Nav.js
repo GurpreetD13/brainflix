@@ -7,10 +7,10 @@ const Nav = () => {
             <img className='nav__logo' src={logo} alt="BrainFlix logo" />
             <form>
                 <input className='nav__search' type="text" placeholder='Search' />
-                {/* <div className='nav__avatar avatar nav__avatar--mobile'></div> */}
+                <div className='avatar nav__avatar nav__avatar--mobile'></div>
             </form>
             <button className='nav__button'>UPLOAD</button>
-            <div className='nav__avatar avatar nav__avatar--tablet'></div>
+            <div className='avatar nav__avatar nav__avatar--tablet'></div>
         </nav>
     );
 };

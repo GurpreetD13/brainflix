@@ -10,9 +10,10 @@ import videoDetailsData from './data/video-details.json';
 
 class App extends React.Component {
 
-  // Set initial default State to the 1st video in the videoDetailsData array
+  // Set initial default State to the 1st video in the videoDetailsData array, along with the smaller videosData
   state = {
-    activeVideo: videoDetailsData[0]
+    activeVideo: videoDetailsData[0],
+    videosData: videosData
   }
 
   // Function handleVideoChange will handle change/set State of active video to the clicked video from VideoList component.
@@ -39,12 +40,14 @@ class App extends React.Component {
         <VideoHero
           activeVideo={this.state.activeVideo} />
 
-        <VideoArticle
-          activeVideo={this.state.activeVideo} />
+        <div className='desktop-container'>
+          <VideoArticle
+            activeVideo={this.state.activeVideo} />
 
-        <VideoList
-          filteredVideos={filteredVideos}
-          handleVideoChange={this.handleVideoChange} />
+          <VideoList
+            filteredVideos={filteredVideos}
+            handleVideoChange={this.handleVideoChange} />
+        </div>
       </>
     );
   }
