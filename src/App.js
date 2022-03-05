@@ -1,6 +1,9 @@
 import './App.scss';
 import React from 'react';
 import Nav from './components/Nav/Nav';
+import Home from './pages/Home/Home';
+import Upload from './pages/Upload/Upload'
+
 import VideoHero from './components/VideoHero/VideoHero';
 import VideoDetails from './components/VideoDetails/VideoDetails';
 import VideoList from './components/VideoList/VideoList';
