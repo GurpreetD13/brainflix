@@ -1,4 +1,4 @@
-import './VideoArticle.scss';
+import './VideoDetails.scss';
 import dateFormatter from '../../utils/dateFormatter';
 
 const VideoArticle = (props) => {

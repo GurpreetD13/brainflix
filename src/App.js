@@ -2,7 +2,7 @@ import './App.scss';
 import React from 'react';
 import Nav from './components/Nav/Nav';
 import VideoHero from './components/VideoHero/VideoHero';
-import VideoArticle from './components/VideoArticle/VideoArticle.js';
+import VideoDetails from './components/VideoDetails/VideoDetails';
 import VideoList from './components/VideoList/VideoList';
 import videosData from './data/videos.json';
 import videoDetailsData from './data/video-details.json';
@@ -41,7 +41,7 @@ class App extends React.Component {
           activeVideo={this.state.activeVideo} />
 
         <div className='desktop-container'>
-          <VideoArticle
+          <VideoDetails
             activeVideo={this.state.activeVideo} />
 
           <VideoList
