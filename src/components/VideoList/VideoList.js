@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const VideoList = (props) => {
 
-    const { filteredVideos} = props;
+    const { filteredVideos } = props;
 
     return (
         <aside className='video-list'>
