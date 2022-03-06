@@ -17,18 +17,6 @@ class Home extends React.Component {
     videosData: videosData
   }
 
-  // Function handleVideoChange will handle change/set State of active video to the clicked video from VideoList component.
-  // It uses the clicked video's id from the videosData array in VideoList component and 
-  // finds the same video in the videoDetailsData array, by using id, because the id of the videos is the same in
-  // both sets of data
-
-  handleVideoChange = (clickedVideoId) => {
-    const clickedVideo = videoDetailsData.find(video => video.id === clickedVideoId)
-
-    this.setState({
-      activeVideo: clickedVideo
-    })
-  }
 
   render() {
     // Fitler out the active video from videosData array before passing into VideoList component by using active video's id
@@ -44,8 +32,7 @@ class Home extends React.Component {
             activeVideo={this.state.activeVideo} />
 
           <VideoList
-            filteredVideos={filteredVideos}
-            handleVideoChange={this.handleVideoChange} />
+            filteredVideos={filteredVideos} />
         </div>
       </>
     );
