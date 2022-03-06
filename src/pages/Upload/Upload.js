@@ -2,15 +2,15 @@ import './Upload.scss';
 import uploadImage from '../../assets/images/Upload-video-preview.jpg'
 
 
-const Upload = () => {
+const Upload = (routerProps) => {
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
-    
         alert("Your video has been successfully uploaded!");
 
-        //redirect to home
+        // Redirect to Home page ('/') after form submitted, using history routerProp being passed down
+        routerProps.history.push('/');
     }
 
     return (
