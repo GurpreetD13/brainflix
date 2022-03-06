@@ -9,32 +9,48 @@ import videosData from '../../data/videos.json';
 import videoDetailsData from '../../data/video-details.json';
 
 
+
 class Home extends React.Component {
 
-    // Set initial state to be empty and Loading will render until we GET data from API in componentDidMount
+    // Set Initial State to be Empty for both data sets (videoList and activeVideo) 
+    // and render Loading... (see if statement in render) until we GET data from API in componentDidMount
 
     state = {
         activeVideo: null,
         videosData: []
-    }
+    };
 
     componentDidMount() {
 
-        // Set initial loaded State to the video in the URL path otherwise 
-        // 1st video in the videoDetailsData array, along with the smaller videosData
+        // Set initial loaded/Mounted State to the video in the URL path (by using/accessing the videoId from URLs match.params) 
+        // otherwise set to 1st video in the videoDetailsData array, along with the smaller videosData
 
-        // const videoId = this.props.match.params.videoId //|| 
+        const videoId = this.props.match.params.videoId; //|| 
 
+        this.setState({
+            activeVideo: videoDetailsData.find(video => video.id === videoId) || videoDetailsData[0],
+            videosData: videosData
+        });
+        console.log(this.props.match.params.videoId); /// delete
+    };
+
+
+    componentDidUpdate(prevProps) {
+
+        // Set up condition to Update state (activeVideo) only 
+        // IF the new URL path is different than the previous, to prevent infinite loop in componentDidUpdate
+
+        const videoId = this.props.match.params.videoId;
+        const prevVideoId = prevProps.match.params.videoId;
+
+        if (videoId !== prevVideoId) {
+
+            // otherwise Update state of activeVideo to the video in the URL path
             this.setState({
-                activeVideo: 
-                // videoDetailsData.find(video=> video.id = videoId) ||
-                    // videoDetailsData[this.props.match.params.videoId] || 
-                    videoDetailsData[0],
-                videosData: videosData
-            })
-        console.log(this.props.match.params)
-    }
-
+                activeVideo: videoDetailsData.find(video => video.id === videoId)
+            });
+        };
+    };
 
     render() {
         if (!this.state.activeVideo) {
