@@ -3,6 +3,8 @@ import React from 'react';
 import VideoHero from '../../components/VideoHero/VideoHero';
 import VideoDetails from '../../components/VideoDetails/VideoDetails';
 import VideoList from '../../components/VideoList/VideoList';
+import apiUtils from '../../utils/apiUtils';
+//     apiUtils file contains reusable API request functions to GET All videos array and Single video details object
 
 // remove harcoded data
 import videosData from '../../data/videos.json';
@@ -22,14 +24,25 @@ class Home extends React.Component {
 
     componentDidMount() {
 
+        // First GET array/list of All videos from API and set it to state
+        apiUtils.getAllVideosArray()
+            .then(response => {
+
+                this.setState({
+                    videosData: response.data
+                });
+            })
+            .catch(error => console.log(error));
+
+
         // Set initial loaded/Mounted State to the video in the URL path (by using/accessing the videoId from URLs match.params) 
+        // and GET video details object from API 
         // otherwise set to 1st video in the videoDetailsData array, along with the smaller videosData
 
         const videoId = this.props.match.params.videoId; //|| 
 
         this.setState({
             activeVideo: videoDetailsData.find(video => video.id === videoId) || videoDetailsData[0],
-            videosData: videosData
         });
         console.log(this.props.match.params.videoId); /// delete
     };
