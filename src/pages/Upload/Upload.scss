@@ -1,0 +1,13 @@
+@use '../../styles/partials/mixins' as *;
+
+.main {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px;
+    @include tablet {
+        padding: 16px 48px;
+    }
+    @include desktop {
+        padding: 16px 8%;
+    }
+}
