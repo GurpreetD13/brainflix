@@ -3,7 +3,7 @@ import axios from "axios";
 
 const apiBaseUrl = 'https://project-2-api.herokuapp.com';
 
-const apiKeyString = '?api_key=' + 'f76f19d5-1908-4af7-a8b7-ecbd1dba973c';
+const apiKeyString = '?api_key=f76f19d5-1908-4af7-a8b7-ecbd1dba973c';
 
 
 const apiUtils = {

@@ -6,24 +6,18 @@ import VideoList from '../../components/VideoList/VideoList';
 import apiUtils from '../../utils/apiUtils';
 //     apiUtils file contains reusable API request functions to GET All videos array and Single video details object
 
-// remove harcoded data
-import videosData from '../../data/videos.json';
-import videoDetailsData from '../../data/video-details.json';
-
 
 
 class Home extends React.Component {
 
     // Set Initial State to be Empty for both data sets (videoList and activeVideo) 
     // and render Loading... (see if statement in render) until we GET data from API in componentDidMount
-
     state = {
         activeVideo: null,
         videosData: []
     };
 
     componentDidMount() {
-
         // First GET array/list of All videos from API and set it to state
         apiUtils.getAllVideosArray()
             .then(response => {
@@ -31,25 +25,23 @@ class Home extends React.Component {
                 this.setState({
                     videosData: response.data
                 });
-            })
-            .catch(error => console.log(error));
+                // Then GET single video details object from API of either the:  
+                // - 1st video in videosData array above, by using the id of the video at index 0, OR the 
+                // - video in the URL path (by using/accessing the videoId from URLs match.params)
+                const videoId = this.props.match.params.videoId || response.data[0].id;
 
-
-        // Set initial loaded/Mounted State to the video in the URL path (by using/accessing the videoId from URLs match.params) 
-        // and GET video details object from API 
-        // otherwise set to 1st video in the videoDetailsData array, along with the smaller videosData
-
-        const videoId = this.props.match.params.videoId; //|| 
-
-        this.setState({
-            activeVideo: videoDetailsData.find(video => video.id === videoId) || videoDetailsData[0],
-        });
-        console.log(this.props.match.params.videoId); /// delete
+                apiUtils.getSingleVideoDetails(videoId)
+                    .then(response => {
+                        // and Set initial loaded/Mounted State of activeVideo to that video
+                        this.setState({
+                            activeVideo: response.data,
+                        });
+                    }).catch(error => console.log(error));
+            }).catch(error => console.log(error));
     };
 
 
     componentDidUpdate(prevProps) {
-
         // Set up condition to Update state (activeVideo) only 
         // IF the new URL path is different than the previous, to prevent infinite loop in componentDidUpdate
 
@@ -57,11 +49,14 @@ class Home extends React.Component {
         const prevVideoId = prevProps.match.params.videoId;
 
         if (videoId !== prevVideoId) {
-
             // otherwise Update state of activeVideo to the video in the URL path
-            this.setState({
-                activeVideo: videoDetailsData.find(video => video.id === videoId)
-            });
+            apiUtils.getSingleVideoDetails(videoId)
+                .then(response => {
+
+                    this.setState({
+                        activeVideo: response.data,
+                    });
+                }).catch(error => console.log(error));
         };
     };
 
@@ -69,9 +64,8 @@ class Home extends React.Component {
         if (!this.state.activeVideo) {
             return (<h2>Loading...</h2>);
         };
-
         // Fitler out the active video from videosData array before passing into VideoList component by using active video's id
-        const filteredVideos = videosData.filter(video => video.id !== this.state.activeVideo.id)
+        const filteredVideos = this.state.videosData.filter(video => video.id !== this.state.activeVideo.id)
 
         return (
             <>
