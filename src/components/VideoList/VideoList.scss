@@ -2,6 +2,7 @@
 @use '../../styles/partials/typography' as *;
 @use '../../styles/partials/colors' as *;
 
+
 .video-list {
     box-sizing: border-box;
     width: 100%;
@@ -16,7 +17,6 @@
         width: 40%;
         border-left: 1px solid $color-secondary-mercury;
         padding-left: 24px;
-
     }
 
     &__title {
@@ -28,10 +28,12 @@
         display: flex;
     }
 }
+// ************************************************
 
 ul {
     padding: 0;
 }
+// ************************************************
 
 .video-item {
     &__title {

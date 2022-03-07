@@ -1,6 +1,10 @@
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/colors' as *;
+
 
 .main {
+    border-top: 1px solid $color-secondary-mercury;
     box-sizing: border-box;
     width: 100%;
     padding: 16px;
@@ -9,5 +13,91 @@
     }
     @include desktop {
         padding: 16px 8%;
+    }
+}
+// ************************************************
+
+.upload {
+    &__title {
+        @include font-header-page;
+    }
+}
+// ************************************************
+
+.thumbnail {
+    &__label {
+        color: $color-primary-silver;
+        @include font-labels-buttons;
+        padding-bottom: 4px;
+    }
+
+    &__image {
+        border-radius: 4px;
+        background-color: $color-secondary-mercury;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+}
+// ************************************************
+
+.upload-form {
+    &__top-container {
+        @include tablet  {
+            border-top: 1px solid $color-secondary-mercury;
+            border-bottom: 1px solid $color-secondary-mercury;
+            margin-bottom: 16px;
+        }
+        @include desktop {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__thumbnail-container {
+        @include tablet {
+            width: 51%;
+            padding-right: 16px;
+        }
+        @include desktop {
+            width: 40%;
+        }
+    }
+
+    &__inputs-container {
+        display: flex;
+        flex-direction: column;
+        @include desktop {
+            width: 95%;
+        }
+    }
+
+    &__buttons-container {
+        @include tablet {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+}
+// ************************************************
+
+input, textarea {
+    margin-bottom: 16px;
+}
+// ************************************************
+
+.button {
+    &--cancel {
+        color: $color-primary-blue;
+        background-color: $color-primary-white;
+    }
+
+    &--publish {
+        position: relative;
+
+        &::before {
+            content: url('../../assets/icons/publish.svg');
+            position: absolute;
+            left: 10px;
+        }
     }
 }

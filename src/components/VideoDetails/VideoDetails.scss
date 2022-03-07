@@ -15,6 +15,7 @@
       width: 60%  
     }
 }
+// ************************************************
 
 .video-article {
     &__title {
@@ -29,17 +30,16 @@
         color: $color-primary-silver;
         padding-right: 16px;
 
-
         &--views::before {
             content: url('../../assets/icons/views.svg');
             padding-right: 4px;
         }
-
         &--likes::before {
             content: url('../../assets/icons/likes.svg');
             padding: 0 6px 0 3px;
         }
     }
+
     &__description {
         @include font-body;
         padding-bottom: 16px;
@@ -61,6 +61,7 @@
         }
     }
 }
+// ************************************************
 
 .form-container {
     display: flex;
@@ -83,6 +84,7 @@
         }
     }
 }
+// ************************************************
 
 .comment-form {
     display: flex;
@@ -119,10 +121,12 @@
         }
     }
 }
+// ************************************************
 
 .comments-section__total-comments {
     @include font-subheader;
 }
+// ************************************************
 
 .comment-post {
     @include font-body;
