@@ -19,6 +19,7 @@ class Home extends React.Component {
 
     componentDidMount() {
         // First GET array/list of All videos from API and set it to state
+
         apiUtils.getAllVideosArray()
             .then(response => {
 
@@ -28,35 +29,38 @@ class Home extends React.Component {
                 // Then GET single video details object from API of either the:  
                 // - 1st video in videosData array above, by using the id of the video at index 0, OR the 
                 // - video in the URL path (by using/accessing the videoId from URLs match.params)
+
                 const videoId = this.props.match.params.videoId || response.data[0].id;
 
-                apiUtils.getSingleVideoDetails(videoId)
-                    .then(response => {
-                        // and Set initial loaded/Mounted State of activeVideo to that video
-                        this.setState({
-                            activeVideo: response.data,
-                        });
-                    }).catch(error => console.log(error));
-            }).catch(error => console.log(error));
+                // and Set initial loaded/Mounted State of activeVideo to that video using named function defined below
+                this.getSelectedVideoDetails(videoId);
+            })
+            .catch(error => console.log(error));
     };
 
+    // We have to getSelectedVideoDetails twice (once in componentDidMount above and once in componentDidUpdate below) so 
+    // created the named function below to stay DRY. 
+    // It GETs single video details object from API by using videoID ...
+    getSelectedVideoDetails(videoId) {
+        apiUtils.getSingleVideoDetails(videoId)
+            .then(response => {
+                // and Sets State of activeVideo to that video
+                this.setState({
+                    activeVideo: response.data,
+                });
+            }).catch(error => console.log(error));
+    }
 
     componentDidUpdate(prevProps) {
         // Set up condition to Update state (activeVideo) only 
-        // IF the new URL path is different than the previous, to prevent infinite loop in componentDidUpdate
+        // IF the new URL path is different than the previous, to prevent infinite loop in componentDidUpdate)
 
         const videoId = this.props.match.params.videoId;
         const prevVideoId = prevProps.match.params.videoId;
 
         if (videoId !== prevVideoId) {
-            // otherwise Update state of activeVideo to the video in the URL path
-            apiUtils.getSingleVideoDetails(videoId)
-                .then(response => {
-
-                    this.setState({
-                        activeVideo: response.data,
-                    });
-                }).catch(error => console.log(error));
+            // otherwise Update state of activeVideo to the video in the URL path using
+            this.getSelectedVideoDetails(videoId);
         };
     };
 
