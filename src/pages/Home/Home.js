@@ -48,6 +48,8 @@ class Home extends React.Component {
                 this.setState({
                     activeVideo: response.data,
                 });
+                window.scrollTo(0, 0);
+                // line above simply takes app/user to top of page after getting new video
             }).catch(error => console.log(error));
     }
 
