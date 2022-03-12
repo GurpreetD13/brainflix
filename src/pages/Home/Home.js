@@ -59,8 +59,9 @@ class Home extends React.Component {
         const prevVideoId = prevProps.match.params.videoId;
 
         if (videoId !== prevVideoId) {
-            // otherwise Update state of activeVideo to the video in the URL path using
-            this.getSelectedVideoDetails(videoId);
+            // otherwise Update state of activeVideo to the video in the URL path using the getSelectedVideoDetails function 
+            // or get the default video when the id does not exist in the URL path (i.e. if the user clicks back to go to Home page)
+            this.getSelectedVideoDetails(videoId || this.state.videosData[0].id);
         };
     };
 
