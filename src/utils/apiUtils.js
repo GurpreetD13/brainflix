@@ -12,7 +12,11 @@ const apiUtils = {
 
     // to GET Single detailed video object using the videoID from API use: 
 
-    getSingleVideoDetails: (videoId) => axios.get(`${apiBaseUrl}/videos/${videoId}`)
+    getSingleVideoDetails: (videoId) => axios.get(`${apiBaseUrl}/videos/${videoId}`),
+
+    // to POST/upload newVideo object to API server use: 
+
+    postNewVideo: (newVideo) => { axios.post(`${apiBaseUrl}/videos`, newVideo) }
 };
 
 export default apiUtils;

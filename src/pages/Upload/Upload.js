@@ -1,12 +1,14 @@
 import './Upload.scss';
 import uploadImage from '../../assets/images/Upload-video-preview.jpg'
+import apiUtils from '../../utils/apiUtils';
+//     apiUtils file contains postNewVideo function to POST user's newVideo object to API server
 
 
 const Upload = (routerProps) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Your video has been successfully oploaded!");
+        alert("Your video has been successfully uploaded!");
         // Redirect to Home page ('/') after form submitted, using history routerProp being passed down
         routerProps.history.push('/');
     }
