@@ -8,9 +8,23 @@ const Upload = (routerProps) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert("Your video has been successfully uploaded!");
-        // Redirect to Home page ('/') after form submitted, using history routerProp being passed down
-        routerProps.history.push('/');
+        // create newVideo to POST based on user's inputs in upload form
+        const newVideo = {
+            "title": event.target.userVideoTitle.value,
+            "channel": "Anonymous",
+            "image": "http://localhost:8080/images/image3.jpeg",
+            "description": event.target.userVideoDescription.value,
+            "duration": "4:20",
+            "video": "https://project-2-api.herokuapp.com/stream",
+        }
+        // and send POST request
+        apiUtils.postNewVideo(newVideo)
+            .then(() => {
+                alert("Your video has been successfully uploaded!");
+                // Redirect to Home page ('/') after form submitted, using history routerProp being passed down
+                routerProps.history.push('/');
+            })
+            .catch(error => console.log(error));
     }
 
     return (

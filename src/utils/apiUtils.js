@@ -16,7 +16,7 @@ const apiUtils = {
 
     // to POST/upload newVideo object to API server use: 
 
-    postNewVideo: (newVideo) => { axios.post(`${apiBaseUrl}/videos`, newVideo) }
+    postNewVideo: (newVideo) => axios.post(`${apiBaseUrl}/videos`, newVideo)
 };
 
 export default apiUtils;
